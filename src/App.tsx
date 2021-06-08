@@ -7,11 +7,11 @@ import Drawer from '@material-ui/core/Drawer';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Grid from '@material-ui/core/Grid';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import Badge from '@material-ui/core/Badge';
+import Badge from '@material-ui/core/Badge';    
 // Styles
 import { Wrapper, StyledButton } from './App.styles';
 // Types
-export type CartItemType = {
+export interface CartItemType {
   id: number;
   category: string;
   description: string;
@@ -19,8 +19,7 @@ export type CartItemType = {
   price: number;
   title: string;
   amount: number;
-};
-
+}
 const getProducts = async (): Promise<CartItemType[]> =>
   await (await fetch('https://fakestoreapi.com/products')).json();
 
